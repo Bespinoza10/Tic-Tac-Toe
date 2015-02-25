@@ -23,7 +23,6 @@ board.b3 = $('#six').text();
 board.c1 = $('#seven').text();
 board.c2 = $('#eight').text();
 board.c3 = $('#nine').text();
-});
 winConditions = [
     [board.a1, board.a2, board.a3],
     [board.b1, board.b2, board.b3],
@@ -34,6 +33,28 @@ winConditions = [
     [board.a1, board.b2, board.c3],
     [board.a3, board.b2, board.c1],
     ];
+});
+
+//var b = [['','',''],['','',''],['','','']];
+
+
+// function render(b){
+// 	var $table = $('<table></table>');
+
+// b.forEach(function(row){
+// 	var $tr = $('<tr></tr>');
+
+// 		row.forEach(function(cell){
+// 			$tr.append($('<td>'+ cell +'</td>'));
+// 		})
+// 		$table.append($tr);
+// 	})
+// 	return $table;
+// 	console.log('yup');
+// };
+
+// b[0][0] = $('#one').text();
+// render(b);
 
 //check td #id for value
 //store value in board array
