@@ -1,9 +1,10 @@
 'use strict'
 
-var fb = new Firebase ('https://ticytacytoey.firebaseio.com/');
-var piece = 'x';
+var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
+    piece = 'x',
+    board = ['','','','','','','','',''];
 
-var board = ['','','','','','','','',''];
+
 $('tbody').on('click','td', function(event){
 	var $td = $(this).closest("td");
 	$td.text(piece);
@@ -11,5 +12,5 @@ $('tbody').on('click','td', function(event){
 		piece = 'o';
 	} else {
 		piece = 'x';
-	};
+	}
 });
