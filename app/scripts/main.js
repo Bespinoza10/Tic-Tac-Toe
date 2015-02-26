@@ -20,7 +20,7 @@ var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
 
 
 
-$('tbody').on('click','td', function(event){
+$('tbody').on('click','td', function(){
 
 	var $td = $(this).closest("td");
 	$td.text(piece);
@@ -46,41 +46,33 @@ $('tbody').on('click','td', function(event){
 	}
 
 	$('#currentMove').text('Next move: ' + piece);
+	$td.unbind('click');
 });
 
 //winning logic
 
 function gameWinLogic(piece) {
 
-	if (board.a1 === piece && board.a2 === piece && board.a3 === piece) {
-		console.log('hello');
-		alert(piece + '1 won!');
-		location.reload();
-	} else if (board.b1 === piece && board.b2 === piece && board.b3 === piece) {
-		alert(piece + '2 won!');
-		location.reload();
-	} else if (board.c1 === piece && board.c2 === piece && board.c3 === piece) {
-		alert(piece + '3 won!');
-		location.reload();
-	} else if (board.a1 === piece && board.b1 === piece && board.c1 === piece) {
-		alert(piece + '4 won!');
-		location.reload();
-	} else if (board.a2 === piece && board.b2 === piece && board.c2 === piece) {
-		alert(piece + '5 won!');
-		location.reload();
-	} else if (board.a3 === piece && board.b3 === piece && board.c3 === piece) {
-		alert(piece + '6 won!');
-		location.reload();
-	} else if (board.a1 === piece && board.b2 === piece && board.c3 === piece) {
-		alert(piece + '7 won!');
-		location.reload();
-	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
-		alert(piece + '8 eight!');
-		location.reload();
-	} else {
-		console.log('keep going');
-	}
 
+	if (board.a1 === piece && board.a2 === piece && board.a3 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} else if (board.b1 === piece && board.b2 === piece && board.b3 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} else if (board.c1 === piece && board.c2 === piece && board.c3 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');;
+	} else if (board.a1 === piece && board.b1 === piece && board.c1 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} else if (board.a2 === piece && board.b2 === piece && board.c2 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');;
+	} else if (board.a3 === piece && board.b3 === piece && board.c3 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} else if (board.a1 === piece && board.b2 === piece && board.c3 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
+		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
+	} if (board.a1 && board.a2 && board.a3 && board.b1 && board.b2 && board.b3 && board.c1 && board.c2 && board.c3) {
+		$('#winner').text('Try again, it\'s a tie :(');
+	}
 
 };
 
