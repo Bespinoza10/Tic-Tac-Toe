@@ -33,28 +33,34 @@ $('tbody').on('click','td', function(event){
 
 });
 
-
-
 //winning logic
 
 function gameWinLogic(piece) {
 
 	if (board.a1 === piece && board.a2 === piece && board.a3 === piece) {
-		alert(piece + ' one!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.b1 === piece && board.b2 === piece && board.b3 === piece) {
-		alert(piece + ' two!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.c1 === piece && board.c2 === piece && board.c3 === piece) {
-		alert(piece + ' three!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.a1 === piece && board.b1 === piece && board.c1 === piece) {
-		alert(piece + ' four!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.a2 === piece && board.b2 === piece && board.c2 === piece) {
-		alert(piece + ' five!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.a3 === piece && board.b3 === piece && board.c3 === piece) {
-		alert(piece + ' six!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.a1 === piece && board.b2 === piece && board.c3 === piece) {
-		alert(piece + ' seven!');
+		alert(piece + ' won!');
+		location.reload();
 	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
 		alert(piece + ' eight!');
+		location.reload();
 	} else {
 		console.log('keep going');
 	}

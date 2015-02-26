@@ -1,17 +1,32 @@
-@import '../../bower_components/foundation/scss/foundation';
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+// @import '../../bower_components/foundation/scss/normalize';
+// @import '../../bower_components/foundation/scss/foundation';
 
-
+body {
+  font-family: Monaco;
+}
 
 h1, h2 {
-  color: #7F1E09;
+  color: #8C8B18;
   text-align: center;
 }
 
 
 table {
-  width: 100%;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 tr {
   height: 150px;
+}
+
+td {
+  width: 33%;
+  border: 2px black solid;
+  font-size: 4em;
+  text-align: center;
+  color: #8C8B18;
+  background-color: #007CCC;
 }
