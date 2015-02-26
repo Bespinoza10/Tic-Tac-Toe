@@ -2,22 +2,7 @@
 
 var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
     piece = 'X',
-    board = {a1:'', a2:'', a3:'', b1:'', b2:'', b3:'', c1:'', c2:'', c3:''},
-    winConditions;
-
-
-// $(document).ready(init);
-// function init(){
-// 	$('.tasty').click(otherFunction);
-// 	clearBoard();
-// 	NewGame();
-// }
-
-
-
-
-
-
+    board = {a1:'', a2:'', a3:'', b1:'', b2:'', b3:'', c1:'', c2:'', c3:''};
 
 
 $('tbody').on('click','td', function(){
@@ -76,13 +61,15 @@ function gameWinLogic(piece) {
 
 };
 
-winConditions = [
-  [board.a1, board.a2, board.a3],
-  [board.b1, board.b2, board.b3],
-  [board.c1, board.c2, board.c3],
-  [board.a1, board.b1, board.c1],
-  [board.a2, board.b2, board.c2],
-  [board.a3, board.b3, board.c3],
-  [board.a1, board.b2, board.c3],
-  [board.a3, board.b2, board.c1],
-];
+
+
+// winConditions = [
+//   [board.a1, board.a2, board.a3],
+//   [board.b1, board.b2, board.b3],
+//   [board.c1, board.c2, board.c3],
+//   [board.a1, board.b1, board.c1],
+//   [board.a2, board.b2, board.c2],
+//   [board.a3, board.b3, board.c3],
+//   [board.a1, board.b2, board.c3],
+//   [board.a3, board.b2, board.c1],
+// ];
