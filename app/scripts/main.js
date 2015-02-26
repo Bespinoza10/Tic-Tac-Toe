@@ -61,7 +61,7 @@ function gameWinLogic(piece) {
 	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
 		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} if (board.a1 && board.a2 && board.a3 && board.b1 && board.b2 && board.b3 && board.c1 && board.c2 && board.c3) {
-		$('#winner').text('Try again, '+ piece + ' it\'s a tie :( (Just click here!)');
+		$('#winner').text('Try again, it\'s a tie :(  (Just click here!)');
 	}
 
 };
@@ -71,6 +71,7 @@ $('#winner').click(function(){
 	$('#winner').empty();
 	$('#currentMove').empty();
 	piece = 'X';
+	board = {a1:'', a2:'', a3:'', b1:'', b2:'', b3:'', c1:'', c2:'', c3:''};
 });
 
 
