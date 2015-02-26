@@ -45,40 +45,30 @@ function gameWinLogic(piece) {
 
 
 	if (board.a1 === piece && board.a2 === piece && board.a3 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.b1 === piece && board.b2 === piece && board.b3 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.c1 === piece && board.c2 === piece && board.c3 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');;
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.a1 === piece && board.b1 === piece && board.c1 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.a2 === piece && board.b2 === piece && board.c2 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');;
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.a3 === piece && board.b3 === piece && board.c3 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.a1 === piece && board.b2 === piece && board.c3 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
-		$('#winner').text('Hey, good on you, ' + piece + ' you won!');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Hey, good on you, ' + piece + ' you won! (Just click here!)');
 	} if (board.a1 && board.a2 && board.a3 && board.b1 && board.b2 && board.b3 && board.c1 && board.c2 && board.c3) {
-		$('#winner').text('Try again, it\'s a tie :(');
-		$('#newGame').toggleClass('hidden');
+		$('#winner').text('Try again, '+ piece + ' it\'s a tie :( (Just click here!)');
 	}
 
 };
 
-$('#newGame').click(function(){
+$('#winner').click(function(){
 	$('td').empty();
 	$('#winner').empty();
-	$('#newGame').toggleClass('hidden');
 	$('#currentMove').empty();
 	piece = 'X';
 });
