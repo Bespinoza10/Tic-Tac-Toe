@@ -7,7 +7,6 @@ var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
 
 
 
-
 $('tbody').on('click','td', function(event){
 	var $td = $(this).closest("td");
 	$td.text(piece);
@@ -64,6 +63,7 @@ function gameWinLogic(piece) {
 	} else {
 		console.log('keep going');
 	}
+
 
 };
 
