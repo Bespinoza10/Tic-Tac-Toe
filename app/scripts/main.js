@@ -6,17 +6,24 @@ var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
     winConditions;
 
 
+// $(document).ready(init);
+// function init(){
+// 	$('.tasty').click(otherFunction);
+// 	clearBoard();
+// 	NewGame();
+// }
+
+
+
+
+
+
+
 
 $('tbody').on('click','td', function(event){
+
 	var $td = $(this).closest("td");
 	$td.text(piece);
-	if(piece === 'X') {
-		piece = 'O';
-	} else {
-		piece = 'X';
-	}
-
-	$('#currentMove').text('Next move: ' + piece);
 
 	board.a1 = $('#one').text();
 	board.a2 = $('#two').text();
@@ -28,8 +35,17 @@ $('tbody').on('click','td', function(event){
 	board.c2 = $('#eight').text();
 	board.c3 = $('#nine').text();
 
-  gameWinLogic(piece);
 
+	gameWinLogic(piece);
+
+
+  	if(piece === 'X') {
+		piece = 'O';
+	} else {
+		piece = 'X';
+	}
+
+	$('#currentMove').text('Next move: ' + piece);
 });
 
 //winning logic
@@ -37,28 +53,29 @@ $('tbody').on('click','td', function(event){
 function gameWinLogic(piece) {
 
 	if (board.a1 === piece && board.a2 === piece && board.a3 === piece) {
-		alert(piece + ' won!');
+		console.log('hello');
+		alert(piece + '1 won!');
 		location.reload();
 	} else if (board.b1 === piece && board.b2 === piece && board.b3 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '2 won!');
 		location.reload();
 	} else if (board.c1 === piece && board.c2 === piece && board.c3 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '3 won!');
 		location.reload();
 	} else if (board.a1 === piece && board.b1 === piece && board.c1 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '4 won!');
 		location.reload();
 	} else if (board.a2 === piece && board.b2 === piece && board.c2 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '5 won!');
 		location.reload();
 	} else if (board.a3 === piece && board.b3 === piece && board.c3 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '6 won!');
 		location.reload();
 	} else if (board.a1 === piece && board.b2 === piece && board.c3 === piece) {
-		alert(piece + ' won!');
+		alert(piece + '7 won!');
 		location.reload();
 	} else if (board.a3 === piece && board.b2 === piece && board.c1 === piece) {
-		alert(piece + ' eight!');
+		alert(piece + '8 eight!');
 		location.reload();
 	} else {
 		console.log('keep going');
