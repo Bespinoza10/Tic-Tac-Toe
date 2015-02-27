@@ -75,13 +75,59 @@ $('#winner').click(function(){
 });
 
 
-// winConditions = [
-//   [board.a1, board.a2, board.a3],
-//   [board.b1, board.b2, board.b3],
-//   [board.c1, board.c2, board.c3],
-//   [board.a1, board.b1, board.c1],
-//   [board.a2, board.b2, board.c2],
-//   [board.a3, board.b3, board.c3],
-//   [board.a1, board.b2, board.c3],
-//   [board.a3, board.b2, board.c1],
-// ];
+//Firebasee Stuff
+
+//Login
+$('#login').click(function() {
+  var $form = $($(this).closest('form'));
+  var email = $form.find('[type="email"]').val();
+  var password = $form.find('[type="password"]').val();
+  var loginData = {email: email, password: password};
+  userLogin(loginData);
+});
+
+function userLogin(loginData) {
+	fb.authWithPassword(loginData, function(err) {
+	  if (err) {
+	    $('.error').text('Please enter a valad email address and password');
+	  } else {
+  	  $('.gameBox').toggleClass('hidden');
+		  $('.loginForm').toggleClass('hidden');
+	  }
+	});
+}
+
+  //REGISTER OR LOGIN FUNCTION//
+  $('#createUser').click(function() {
+    var $form = $($(this).closest('form'));
+    var email = $form.find('[type="email"]').val();
+    var password = $form.find('[type="password"]').val();
+    var loginData = {email: email, password: password};
+
+    registerAndLogin(loginData, function(err) {
+      if (err) {
+        $('.error').text('Please enter a valaid email address and password');
+      } else {
+        $('.gameBox').toggleClass('hidden');
+        $('.loginForm').toggleClass('hidden');
+      }
+    });
+  });
+
+  //REGISTER AND LOGIN FUNCTION//
+  function registerAndLogin(obj, cb) {
+    fb.createUser(obj, function(err) {
+      if (!err) {
+        fb.authWithPassword(obj, function(err, auth) {
+          if (!err) {
+            cb(null, auth);
+          } else {
+            cb(err);
+          }
+        });
+      } else {
+        cb(err);
+      }
+    });
+  }
+
