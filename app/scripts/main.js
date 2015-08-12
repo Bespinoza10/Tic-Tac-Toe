@@ -14,7 +14,6 @@ fb.child('---game').once('value', function(snap) {
       var keyArr = _.keys(snap.val());
       game = new Firebase('https://ticytacytoey.firebaseio.com/' + keyArr[0]);
       game.set({player1: false});
-      console.log("HERE")
       gameTime(game);
     });
     fb.child('---game').set(1);
