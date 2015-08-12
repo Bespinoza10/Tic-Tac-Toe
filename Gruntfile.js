@@ -80,9 +80,6 @@ module.exports = function (grunt) {
       }
     },
     sass: {
-      options: {
-        sourceMap: true
-      },
       dist: {
         files: {
           'public/css/main.css': 'app/styles/main.scss'

@@ -2,43 +2,81 @@
 
 var fb    = new Firebase ('https://ticytacytoey.firebaseio.com/'),
     piece = 'X',
+    open,
     board = {a1:'', a2:'', a3:'', b1:'', b2:'', b3:'', c1:'', c2:'', c3:''};
+// newGame.set({board});
+
+fb.child('---game').once('value', function(snap) {
+  open = snap.val();
+  if (open % 2 == 0) {
+    console.log('if')
+    fb.limitToLast(1).once('value', function(snap) {
+      var keyArr = _.keys(snap.val());
+      game = new Firebase('https://ticytacytoey.firebaseio.com/' + keyArr[0]);
+      game.set({player1: false});
+      gameTime(game);
+    });
+    fb.child('---game').set(1);
+  } else {
+    console.log('else')
+    var game = fb.push();
+    game.set({
+      board: board,
+      player1: true
+    })
+    fb.child('---game').set(2)
+    gameTime(game);
+  }
+})
+
+function gameTime(game) {
+  console.log(game)
+  game.on('value', function(snap) {
+    board = snap.child('board').val();
+    var player1 = snap.child('player1').val();
+    console.log(player1)
+
+    $('#a1').text(board.a1);
+    $('#a2').text(board.a2);
+    $('#a3').text(board.a3);
+    $('#b1').text(board.b1);
+    $('#b2').text(board.b2);
+    $('#b3').text(board.b3);
+    $('#c1').text(board.c1);
+    $('#c2').text(board.c2);
+    $('#c3').text(board.c3);
+
+    if(player1) {
+      piece = 'X';
+    } else {
+      piece = 'O';
+    }
+
+    $('td').on('click', function(){
+
+	    var $td = $(this).closest("td");
+
+  	  // if (!$td.text()) {
+      board[$td.prop('id')] = piece;
+
+      if(player1) {
+        piece = 'X';
+      } else {
+        piece = 'O';
+      }
+
+      game.set({board: board})
 
 
-$('td').on('click', function(){
-	var $td = $(this).closest("td");
+  		gameWinLogic(piece);
 
-	if ($td.text() == '') {
-
-		$td.text(piece);
-
-		board.a1 = $('#one').text();
-		board.a2 = $('#two').text();
-		board.a3 = $('#three').text();
-		board.b1 = $('#four').text();
-		board.b2 = $('#five').text();
-		board.b3 = $('#six').text();
-		board.c1 = $('#seven').text();
-		board.c2 = $('#eight').text();
-		board.c3 = $('#nine').text();
-
-
-		gameWinLogic(piece);
-
-
-	  	if(piece === 'X') {
-			piece = 'O';
-		} else {
-			piece = 'X';
-		}
-
-		$('#currentMove').text('Next move: ' + piece);
-	} else {
-		alert ('Yo, stop cheetin');
-	}
-	//$td.unbind('click');
-});
-
+    	// 	$('#currentMove').text('Next move: ' + piece);
+    	// } else {
+      //   $('#currentMove').text('Already taken, try again');
+    	// }
+    });
+  });
+}
 //winning logic
 
 function gameWinLogic(piece) {
@@ -130,4 +168,3 @@ $('#winner').click(function(){
 //       }
 //     });
 //   }
-
